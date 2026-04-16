@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "modern-normalize/modern-normalize.css";
 import "./globals.css";
+import Header from "@/components/Header/Header";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${inter.variable}`}>
+        <Header />
         <main>{children}</main>
       </body>
     </html>

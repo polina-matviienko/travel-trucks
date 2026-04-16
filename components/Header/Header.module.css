@@ -1,0 +1,29 @@
+.header {
+  background-color: var(--inputs);
+  border-bottom: 1px solid var(--badges);
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 450px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  padding: 24px 0;
+  gap: 32px;
+}
+
+.link {
+  font-weight: 500;
+  transition: color 250ms ease;
+}
+
+.link:hover,
+.link:focus,
+.link:active {
+  color: var(--grey-green);
+}
