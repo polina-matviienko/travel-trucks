@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { AppLink } from "@/components/UI/Button/Button";
 import css from "./page.module.css";
 
 const HomePage = () => {
@@ -9,9 +9,9 @@ const HomePage = () => {
         <p className={css.subtitle}>
           You can find everything you want in our catalog
         </p>
-        <Link href="/catalog" className={css.button}>
+        <AppLink href="/catalog" className={css.heroBtn}>
           View Now
-        </Link>
+        </AppLink>
       </div>
     </section>
   );

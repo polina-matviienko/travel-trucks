@@ -1,0 +1,45 @@
+.hero {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: calc(100vh - 72px);
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/images/hero-bg.webp");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url("/images/hero-bg-2x.webp");
+  }
+}
+
+.heroContainer {
+  padding-top: 195px;
+}
+
+.title {
+  color: var(--inputs);
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 0.67;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  color: var(--inputs);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+  margin-bottom: 40px;
+}
+
+.heroBtn {
+  padding: 16px 48.5px;
+}
