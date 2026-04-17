@@ -19,6 +19,7 @@ export const CamperCard = ({ camper }: CamperCardProps) => {
           alt={camper.name}
           fill
           className={css.img}
+          sizes="(max-width: 768px) 100vw, 219px"
         />
       </div>
 

@@ -1,0 +1,22 @@
+.loaderWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  gap: 16px;
+  background-color: var(--white);
+  z-index: 999;
+}
+
+.loaderText {
+  font-size: 16px;
+  font-weight: 500;
+  color: #829b91;
+  letter-spacing: -0.01em;
+}

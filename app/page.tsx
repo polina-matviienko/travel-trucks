@@ -10,7 +10,6 @@ const HomePage = () => {
         src={heroBg}
         alt="Maverick camper on a sunset backdrop"
         placeholder="blur"
-        quality={100}
         fill
         priority
         sizes="100vw"
