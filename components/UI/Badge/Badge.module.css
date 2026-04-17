@@ -1,0 +1,20 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background-color: var(--badges);
+  border-radius: 100px;
+  height: 48px;
+  white-space: nowrap;
+}
+
+.icon {
+  color: var(--main);
+  flex-shrink: 0;
+}
+
+.label {
+  font-weight: 500;
+}
