@@ -5,10 +5,10 @@ import {
 } from "@tanstack/react-query";
 import { Metadata } from "next";
 import { fetchCampers, fetchFilters } from "@/lib/campersApi";
-// import CatalogClient from "./Catalog.client";
+import CatalogClient from "./Catalog.client";
 
 export const metadata: Metadata = {
-  title: "Catalog | TravelTrucks",
+  title: "Catalog",
   description:
     "Find your ideal camper in our selection. Filter by type, location, and amenities to plan your next road trip.",
 };
@@ -29,7 +29,7 @@ export default async function CatalogPage() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      {/* <CatalogClient /> */}
+      <CatalogClient />
     </HydrationBoundary>
   );
 }
