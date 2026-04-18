@@ -17,6 +17,6 @@
 .loaderText {
   font-size: 16px;
   font-weight: 500;
-  color: #829b91;
+  color: var(--grey-green);
   letter-spacing: -0.01em;
 }

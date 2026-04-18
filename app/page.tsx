@@ -5,26 +5,21 @@ import css from "./page.module.css";
 
 const HomePage = () => {
   return (
-    <section className={css.hero}>
+    <section className={`container ${css.hero}`}>
       <Image
         src={heroBg}
         alt="Maverick camper on a sunset backdrop"
-        placeholder="blur"
         fill
         priority
-        sizes="100vw"
         className={css.imageBg}
       />
-
       <div className={css.overlay} />
 
-      <div className={`container ${css.heroContainer}`}>
+      <div className={css.content}>
         <h1 className={css.title}>Campers of your dreams</h1>
-
         <p className={css.subtitle}>
           You can find everything you want in our catalog
         </p>
-
         <AppLink href="/catalog" className={css.heroBtn}>
           View Now
         </AppLink>
