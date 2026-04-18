@@ -13,6 +13,11 @@
     color 250ms ease;
 }
 
+.button:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .primary {
   background-color: var(--grey-green);
   color: var(--white);

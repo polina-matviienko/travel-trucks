@@ -3,6 +3,7 @@ export type VehicleForm =
   | "panel_van"
   | "integrated"
   | "semi_integrated";
+
 export type Transmission = "automatic" | "manual";
 export type Engine = "diesel" | "petrol" | "hybrid" | "electric";
 
@@ -29,6 +30,7 @@ export interface Camper {
   price: number;
   rating: number;
   location: string;
+  description: string;
   form: VehicleForm;
   length: string;
   width: string;
@@ -37,13 +39,12 @@ export interface Camper {
   consumption: string;
   transmission: Transmission;
   engine: Engine;
-  amenities: string[] | string;
+  amenities: string[];
   coverImage: string;
   totalReviews: number;
-  description?: string;
-  gallery?: GalleryItem[];
-  createdAt?: string;
-  updatedAt?: string;
+  createdAt: string;
+  updatedAt: string;
+  gallery: GalleryItem[];
 }
 
 export interface CampersResponse {
@@ -60,18 +61,20 @@ export interface FilterOptions {
   engines: Engine[];
 }
 
+export interface GetCampersParams {
+  page?: number;
+  location?: string;
+  form?: string;
+  engine?: string;
+  transmission?: string;
+}
+
 export interface BookingPayload {
+  camperId: string;
   name: string;
   email: string;
 }
 
 export interface BookingResponse {
   message: string;
-}
-
-export interface SearchParams {
-  location?: string;
-  form?: VehicleForm;
-  transmission?: Transmission;
-  engine?: Engine;
 }

@@ -17,14 +17,14 @@ export default async function CatalogPage() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchInfiniteQuery({
-    queryKey: ["campers", {}],
-    queryFn: ({ pageParam = 1 }) => fetchCampers(pageParam as number, {}),
+    queryFn: ({ pageParam = 1 }) => fetchCampers({ page: pageParam as number }),
+    queryKey: ["campers"],
     initialPageParam: 1,
   });
 
   await queryClient.prefetchQuery({
+    queryFn: () => fetchFilters(),
     queryKey: ["filters"],
-    queryFn: fetchFilters,
   });
 
   return (

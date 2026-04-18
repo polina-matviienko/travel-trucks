@@ -14,6 +14,7 @@ interface LinkProps extends BaseProps {
 interface ButtonProps extends BaseProps {
   onClick?: () => void;
   type?: "button" | "submit";
+  disabled?: boolean;
 }
 
 export const AppLink = ({
@@ -37,11 +38,18 @@ export const AppButton = ({
   className,
   variant = "primary",
   type = "button",
+  disabled = false,
 }: ButtonProps) => {
   const rootClassName =
     `${css.button} ${css[variant]} ${className || ""}`.trim();
+
   return (
-    <button type={type} onClick={onClick} className={rootClassName}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={rootClassName}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

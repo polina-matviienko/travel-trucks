@@ -18,7 +18,7 @@ export default function CatalogLayout({
       className={`container ${css.page} ${isDetailsPage ? css.detailsPage : ""}`}
     >
       {!isDetailsPage && <aside className={css.sidebar}>{sidebar}</aside>}
-      {children}
+      <div className={css.content}>{children}</div>
     </main>
   );
 }

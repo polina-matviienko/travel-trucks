@@ -5,21 +5,26 @@ import {
   Review,
   BookingPayload,
   BookingResponse,
-  SearchParams,
   FilterOptions,
+  GetCampersParams,
 } from "@/types/camper";
 
 export const fetchCampers = async (
-  pageParam: number = 1,
-  filters: SearchParams = {},
+  params: GetCampersParams,
 ): Promise<CampersResponse> => {
+  const filteredEntries = Object.entries(params).filter(
+    (entry) => entry[1] !== undefined && entry[1] !== "",
+  );
+
+  const searchParams = Object.fromEntries(filteredEntries);
+
   const { data } = await api.get<CampersResponse>("/campers", {
     params: {
-      page: pageParam,
+      ...searchParams,
       perPage: 4,
-      ...filters,
     },
   });
+
   return data;
 };
 
@@ -39,12 +44,14 @@ export const fetchCamperReviews = async (id: string): Promise<Review[]> => {
 };
 
 export const postBooking = async (
-  camperId: string,
   payload: BookingPayload,
 ): Promise<BookingResponse> => {
   const { data } = await api.post<BookingResponse>(
-    `/campers/${camperId}/booking-requests`,
-    payload,
+    `/campers/${payload.camperId}/booking-requests`,
+    {
+      name: payload.name,
+      email: payload.email,
+    },
   );
   return data;
 };

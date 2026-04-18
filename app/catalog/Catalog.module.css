@@ -1,0 +1,51 @@
+.page {
+  display: flex;
+  gap: 65px;
+  padding-top: 48px;
+  padding-bottom: 52px;
+  align-items: start;
+}
+
+.detailsPage {
+  display: block;
+}
+
+.sidebar {
+  flex-shrink: 0;
+  width: 360px;
+}
+
+.content {
+  flex-grow: 1;
+}
+
+.catalogSection {
+  width: 100%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.emptyMessage {
+  text-align: center;
+  font-size: 18px;
+  color: var(--text);
+  margin-top: 60px;
+  padding: 40px;
+  background-color: var(--inputs);
+  border-radius: 20px;
+}
+
+.loadMoreWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.loadMoreBtn {
+  padding: 16px 32px;
+  min-width: 145px;
+}
