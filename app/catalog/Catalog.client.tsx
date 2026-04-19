@@ -7,7 +7,7 @@ import { fetchCampers } from "@/lib/campersApi";
 
 import { CamperCard } from "@/components/Catalog/CamperCard/CamperCard";
 import { AppButton } from "@/components/UI/Button/Button";
-import { Loader } from "@/components/UI/Loader/Loader";
+import Loader from "@/components/UI/Loader/Loader";
 
 import css from "./Catalog.module.css";
 

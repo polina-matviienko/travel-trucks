@@ -13,7 +13,7 @@ interface LinkProps extends BaseProps {
 
 interface ButtonProps extends BaseProps {
   onClick?: () => void;
-  type?: "button" | "submit";
+  type?: "button" | "submit" | "reset";
   disabled?: boolean;
 }
 

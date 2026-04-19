@@ -1,0 +1,99 @@
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.filterGroup {
+  border: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.groupTitle {
+  display: block;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--gray);
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.realInput {
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  margin: 0;
+  display: grid;
+  place-content: center;
+  transition: border-color 0.2s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.realInput::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: var(--grey-green);
+}
+
+.realInput:checked {
+  border-color: var(--grey-green);
+}
+
+.realInput:checked::before {
+  transform: scale(1);
+}
+
+.labelContent {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--main);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.submitBtn {
+  width: 100%;
+  padding: 16px;
+  height: 56px;
+}
+
+.resetBtn {
+  width: 100%;
+  padding: 16px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.closeIcon {
+  width: 24px;
+  height: 24px;
+}

@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  height: calc(100vh - 72px);
+  min-height: 689px;
   overflow: hidden;
 }
 

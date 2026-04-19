@@ -1,5 +1,3 @@
-"use client";
-
 import { PulseLoader } from "react-spinners";
 import css from "./Loader.module.css";
 
@@ -7,7 +5,7 @@ interface LoaderProps {
   size?: number;
 }
 
-export const Loader = ({ size = 15 }: LoaderProps) => {
+export default function Loader({ size = 15 }: LoaderProps) {
   return (
     <div className={css.loaderWrapper}>
       <PulseLoader
@@ -19,4 +17,4 @@ export const Loader = ({ size = 15 }: LoaderProps) => {
       <p className={css.loaderText}>Loading...</p>
     </div>
   );
-};
+}

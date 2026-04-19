@@ -4,6 +4,8 @@ import "modern-normalize/modern-normalize.css";
 import "./globals.css";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import Header from "@/components/Header/Header";
+import { Suspense } from "react";
+import Loader from "@/components/UI/Loader/Loader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,12 +26,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${inter.variable}`}>
-        <TanStackProvider>
-          <Header />
-          {children}
-        </TanStackProvider>
-      </body>
+      <TanStackProvider>
+        <body className={`${inter.className} ${inter.variable}`}>
+          <Suspense fallback={<Loader />}>
+            <Header />
+            {children}
+          </Suspense>
+        </body>
+      </TanStackProvider>
     </html>
   );
 }

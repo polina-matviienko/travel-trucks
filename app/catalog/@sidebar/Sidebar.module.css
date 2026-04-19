@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.filtersWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.filtersLabel {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}

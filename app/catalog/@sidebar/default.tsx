@@ -5,6 +5,9 @@ import { usePathname, useRouter } from "next/navigation";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { fetchFilters } from "@/lib/campersApi";
 
+import LocationInput from "@/components/Catalog/LocationInput/LocationInput";
+import Filter from "@/components/Catalog/Filter/Filter";
+
 import css from "./Sidebar.module.css";
 
 export default function SidebarDefault() {
@@ -21,15 +24,11 @@ export default function SidebarDefault() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formRef.current) return;
-
-    const formData = new FormData(formRef.current);
+    const formData = new FormData(e.currentTarget);
     const params = new URLSearchParams();
 
     formData.forEach((value, key) => {
-      if (value && value.toString().trim() !== "") {
-        params.append(key, value.toString());
-      }
+      if (value) params.append(key, value.toString());
     });
 
     router.push(`${pathname}?${params.toString()}`);
@@ -37,21 +36,19 @@ export default function SidebarDefault() {
 
   const handleClear = () => {
     formRef.current?.reset();
-    queryClient.resetQueries({ queryKey: ["campers"] });
+    queryClient.invalidateQueries({ queryKey: ["campers"] });
+
     router.push(pathname);
   };
 
   return (
-    <aside className={css.sidebarWrapper}>
-      <form ref={formRef} onSubmit={handleSubmit} className={css.form}>
-        <p
-          style={{ color: "white", fontSize: "14px", backgroundColor: "green" }}
-        >
-          Sidebar Placeholder
-        </p>
+    <form ref={formRef} onSubmit={handleSubmit} className={css.form}>
+      <LocationInput />
 
-        {/* Сюди потім треба додати компонент з фільтрацією */}
-      </form>
-    </aside>
+      <div className={css.filtersWrapper}>
+        <div className={css.filtersLabel}>Filters</div>
+        {filters && <Filter onClear={handleClear} filters={filters} />}
+      </div>
+    </form>
   );
 }
