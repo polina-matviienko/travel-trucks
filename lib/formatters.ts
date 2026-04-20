@@ -9,27 +9,20 @@ export const formatString = (str: string): string => {
 };
 
 export const getCamperFeaturesArray = (car: Camper): string[] => {
-  const features: string[] = [
-    formatString(car.transmission),
-    formatString(car.engine),
-    formatString(car.form),
-  ];
+  const features: string[] = [car.transmission, car.engine, car.form];
 
   if (car.amenities && car.amenities.length > 0) {
-    features.push(formatString(car.amenities[0]));
+    features.push(...car.amenities);
   }
-  if (car.amenities && car.amenities.length > 1) {
-    features.push(formatString(car.amenities[1]));
-  }
-
   return features;
 };
 
 export const formatCarValue = (value: string, key: string): string => {
   const formLabels: Record<string, string> = {
-    fullyIntegrated: "Full Truck",
     alcove: "Alcove",
-    panel_van: "Panel Truck",
+    panel_van: "Panel truck",
+    integrated: "Full truck",
+    semi_integrated: "Semi-integrated",
   };
 
   if (key === "form" && formLabels[value]) {

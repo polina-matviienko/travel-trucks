@@ -26,6 +26,10 @@ export default function VehicleDetails({ camper }: VehicleDetailsProps) {
 
       <ul className={css.specsList}>
         <li className={css.specItem}>
+          <span>Form</span>
+          <span>{formatCarValue(camper.form, "form")}</span>
+        </li>
+        <li className={css.specItem}>
           <span>Length</span>
           <span>{formatCarValue(camper.length, "length")}</span>
         </li>
@@ -44,10 +48,6 @@ export default function VehicleDetails({ camper }: VehicleDetailsProps) {
         <li className={css.specItem}>
           <span>Consumption</span>
           <span>{formatCarValue(camper.consumption, "consumption")}</span>
-        </li>
-        <li className={css.specItem}>
-          <span>Form</span>
-          {formatCarValue(camper.form, "form")}
         </li>
       </ul>
     </div>
