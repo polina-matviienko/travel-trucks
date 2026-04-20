@@ -9,7 +9,7 @@ import VehicleDetails from "@/components/Details/VehicleDetails/VehicleDetails";
 import CamperReviews from "@/components/Details/CamperReviews/CamperReviews";
 import BookingForm from "@/components/Details/BookingForm/BookingForm";
 import Loader from "@/components/UI/Loader/Loader";
-import css from "./Details.module.css";
+import css from "./CamperDetails.module.css";
 
 export default function CamperDetailsClient() {
   const params = useParams();
