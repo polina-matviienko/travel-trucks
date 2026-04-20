@@ -31,3 +31,8 @@ export const formatCarValue = (value: string, key: string): string => {
 
   return value.replace(/(\d+(?:\.\d+)?)([a-zA-Z]+)/, "$1 $2");
 };
+
+export const getInitial = (name: string): string => {
+  if (!name) return "?";
+  return name.trim().charAt(0).toUpperCase();
+};

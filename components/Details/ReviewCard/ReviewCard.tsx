@@ -1,7 +1,7 @@
 "use client";
 
 import Stars from "@/components/UI/Stars/Stars";
-import { getInitial } from "../reviewUtils";
+import { getInitial } from "@/lib/formatters";
 import { Review } from "@/types/camper";
 import css from "./ReviewCard.module.css";
 

@@ -3,7 +3,7 @@
 import { Formik, Form, ErrorMessage, FormikHelpers } from "formik";
 import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { BookingSchema } from "../validationSchema";
+import { BookingSchema } from "@/lib/validators";
 import { postBooking } from "@/lib/campersApi";
 import { AppButton } from "@/components/UI/Button/Button";
 import { Input } from "@/components/UI/Input/Input";
