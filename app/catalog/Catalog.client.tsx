@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchCampers } from "@/lib/campersApi";
 
-import { CamperCard } from "@/components/Catalog/CamperCard/CamperCard";
+import CamperCard from "@/components/Catalog/CamperCard/CamperCard";
 import { AppButton } from "@/components/UI/Button/Button";
 import Loader from "@/components/UI/Loader/Loader";
 
@@ -38,7 +38,7 @@ export default function CatalogClient() {
   const isEmpty = data?.pages[0]?.campers?.length === 0;
 
   return (
-    <section className={css.catalogSection}>
+    <section className={css.catalog}>
       {status === "pending" && <Loader />}
 
       <div className={css.list}>

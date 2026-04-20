@@ -8,7 +8,7 @@ import { fetchCampers, fetchFilters } from "@/lib/campersApi";
 import CatalogClient from "./Catalog.client";
 
 export const metadata: Metadata = {
-  title: "Catalog",
+  title: "Catalog | TravelTrucks",
   description:
     "Find your ideal camper in our selection. Filter by type, location, and amenities to plan your next road trip.",
 };

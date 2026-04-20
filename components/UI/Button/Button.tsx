@@ -9,6 +9,8 @@ interface BaseProps {
 
 interface LinkProps extends BaseProps {
   href: string;
+  target?: string;
+  rel?: string;
 }
 
 interface ButtonProps extends BaseProps {
@@ -22,11 +24,13 @@ export const AppLink = ({
   href,
   className,
   variant = "primary",
+  target,
+  rel,
 }: LinkProps) => {
   const rootClassName =
     `${css.button} ${css[variant]} ${className || ""}`.trim();
   return (
-    <Link href={href} className={rootClassName}>
+    <Link href={href} className={rootClassName} target={target} rel={rel}>
       {children}
     </Link>
   );

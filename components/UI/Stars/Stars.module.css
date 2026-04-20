@@ -1,0 +1,16 @@
+.starsWrapper {
+  display: flex;
+  gap: 4px;
+}
+
+.starFilled {
+  color: var(--rating);
+  width: 16px;
+  height: 16px;
+}
+
+.starEmpty {
+  color: var(--gray-light);
+  width: 16px;
+  height: 16px;
+}

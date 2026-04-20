@@ -8,7 +8,7 @@ export const formatString = (str: string): string => {
     .join(" ");
 };
 
-export const getCarFeaturesArray = (car: Camper): string[] => {
+export const getCamperFeaturesArray = (car: Camper): string[] => {
   const features: string[] = [
     formatString(car.transmission),
     formatString(car.engine),

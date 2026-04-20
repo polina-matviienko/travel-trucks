@@ -9,6 +9,10 @@
 
 .detailsPage {
   display: block;
+  gap: 0;
+  padding-top: 64px;
+  padding-bottom: 278px;
+  align-items: stretch;
 }
 
 .sidebar {
@@ -22,10 +26,6 @@
 .content {
   width: 888px;
   flex-shrink: 0;
-}
-
-.catalogSection {
-  width: 100%;
 }
 
 .list {

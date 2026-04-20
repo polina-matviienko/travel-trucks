@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Camper } from "@/types/camper";
 import { AppLink } from "@/components/UI/Button/Button";
@@ -10,7 +12,7 @@ interface CamperCardProps {
   camper: Camper;
 }
 
-export const CamperCard = ({ camper }: CamperCardProps) => {
+const CamperCard = ({ camper }: CamperCardProps) => {
   return (
     <article className={css.card}>
       <div className={css.imageWrapper}>
@@ -56,6 +58,8 @@ export const CamperCard = ({ camper }: CamperCardProps) => {
           href={`/catalog/${camper.id}`}
           variant="primary"
           className={css.moreDetailsBtn}
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Show more
         </AppLink>
@@ -63,3 +67,5 @@ export const CamperCard = ({ camper }: CamperCardProps) => {
     </article>
   );
 };
+
+export default CamperCard;

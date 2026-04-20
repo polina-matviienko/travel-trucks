@@ -12,6 +12,7 @@ const HomePage = () => {
           alt="Maverick camper on a sunset backdrop"
           fill
           priority
+          sizes="100vw"
           className={css.imageBg}
         />
         <div className={css.overlay} />

@@ -1,0 +1,48 @@
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 88px;
+}
+
+.galleryColumn {
+  width: 638px;
+  flex-shrink: 0;
+}
+
+.infoColumn {
+  width: 650px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.bottomSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.33;
+  margin-bottom: 24px;
+}
+
+.bottomWrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  width: 100%;
+}
+
+.reviewsList {
+  width: 623px;
+  flex-shrink: 0;
+}
+
+.bookingForm {
+  width: 641px;
+  flex-shrink: 0;
+}
