@@ -63,9 +63,9 @@ export default function CamperDetailsClient() {
             <CamperReviews reviews={reviews || []} />
           </div>
 
-          <aside className={css.bookingForm}>
+          <div className={css.bookingForm}>
             <BookingForm camperId={id} />
-          </aside>
+          </div>
         </div>
       </section>
     </>
