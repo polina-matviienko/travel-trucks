@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 689px;
+  min-height: calc(100vh - 72px);
   overflow: hidden;
 }
 
@@ -42,4 +42,5 @@
 
 .heroBtn {
   padding: 16px 48.5px;
+  min-width: 173px;
 }

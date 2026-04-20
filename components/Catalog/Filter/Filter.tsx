@@ -44,9 +44,11 @@ export default function Filter({ onClear, filters }: FilterProps) {
 
   return (
     <div className={css.filterContainer}>
-      {createMarkup(filters.forms, "Camper form")}
-      {createMarkup(filters.engines, "Engine")}
-      {createMarkup(filters.transmissions, "Transmission")}
+      <div className={css.filterList}>
+        {createMarkup(filters.forms, "Camper form")}
+        {createMarkup(filters.engines, "Engine")}
+        {createMarkup(filters.transmissions, "Transmission")}
+      </div>
 
       <div className={css.actions}>
         <AppButton type="submit" className={css.submitBtn}>

@@ -1,12 +1,19 @@
 .filterContainer {
   display: flex;
   flex-direction: column;
+  gap: 48px;
+}
+
+.filterList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .filterGroup {
   border: none;
   padding: 0;
-  margin-bottom: 24px;
+  margin: 0;
 }
 
 .groupTitle {
@@ -74,7 +81,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 8px;
 }
 
 .submitBtn {
