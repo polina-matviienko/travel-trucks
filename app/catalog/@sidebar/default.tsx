@@ -1,32 +1,23 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFilters } from "@/lib/campersApi";
-
 import LocationInput from "@/components/Catalog/LocationInput/LocationInput";
 import Filter from "@/components/Catalog/Filter/Filter";
-
 import css from "./Sidebar.module.css";
 
 export default function SidebarDefault() {
   const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
+  const pathname = usePathname();
   const formRef = useRef<HTMLFormElement>(null);
 
   const { data: filters } = useQuery({
     queryKey: ["filters"],
     queryFn: () => fetchFilters(),
-    refetchOnMount: false,
   });
-
-  useEffect(() => {
-    if (searchParams.toString() === "") {
-      formRef.current?.reset();
-    }
-  }, [searchParams]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,16 +32,19 @@ export default function SidebarDefault() {
   };
 
   const handleClear = () => {
-    formRef.current?.reset();
     router.push(pathname);
+    formRef.current?.reset();
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className={css.form}>
+    <form
+      key={searchParams.toString()}
+      ref={formRef}
+      onSubmit={handleSubmit}
+      className={css.form}
+    >
       <LocationInput defaultValue={searchParams.get("location") || ""} />
-
       <div className={css.filtersWrapper}>
-        <div className={css.filtersLabel}>Filters</div>
         {filters && (
           <Filter
             onClear={handleClear}

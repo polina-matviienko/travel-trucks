@@ -22,19 +22,21 @@ export default function Filter({
   const createMarkup = (filter: string[], filterName: string) => {
     const normalizedFilter =
       filterName === "Camper form" ? "form" : filterName.toLowerCase();
+    const currentValue = searchParams.get(normalizedFilter);
 
     return (
       <fieldset className={css.filterGroup}>
         <legend className={css.groupTitle}>{filterName}</legend>
         <div className={css.grid}>
-          {filter.map((name, index) => (
-            <label key={index} className={css.optionLabel}>
+          {filter.map((name) => (
+            <label key={name} className={css.optionLabel}>
               <input
                 type="radio"
                 name={normalizedFilter}
                 value={name}
                 className={css.realInput}
-                defaultChecked={searchParams.get(normalizedFilter) === name}
+                key={`${normalizedFilter}-${currentValue}`}
+                defaultChecked={currentValue === name}
               />
               <div className={css.optionCard}>
                 <span className={css.labelContent}>{formatString(name)}</span>

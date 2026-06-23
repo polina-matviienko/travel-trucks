@@ -1,4 +1,5 @@
 "use client";
+
 import { HiOutlineMap } from "react-icons/hi2";
 import css from "./LocationInput.module.css";
 
@@ -16,6 +17,7 @@ export default function LocationInput({ defaultValue }: Props) {
           placeholder="City"
           className={css.input}
           name="location"
+          key={defaultValue}
           defaultValue={defaultValue}
         />
         <HiOutlineMap className={css.icon} />
