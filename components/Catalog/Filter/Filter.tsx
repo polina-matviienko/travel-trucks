@@ -4,25 +4,28 @@ import { IoMdClose } from "react-icons/io";
 import { FilterOptions } from "@/types/camper";
 import { formatString } from "@/lib/formatters";
 import { AppButton } from "@/components/UI/Button/Button";
+import { ReadonlyURLSearchParams } from "next/navigation";
 
 import css from "./Filter.module.css";
 
 interface FilterProps {
   filters: FilterOptions;
   onClear: () => void;
+  searchParams: ReadonlyURLSearchParams;
 }
 
-export default function Filter({ onClear, filters }: FilterProps) {
+export default function Filter({
+  onClear,
+  filters,
+  searchParams,
+}: FilterProps) {
   const createMarkup = (filter: string[], filterName: string) => {
     const normalizedFilter =
-      filterName === "Camper form"
-        ? filterName.split(" ")[1].toLowerCase()
-        : filterName.toLowerCase();
+      filterName === "Camper form" ? "form" : filterName.toLowerCase();
 
     return (
       <fieldset className={css.filterGroup}>
         <legend className={css.groupTitle}>{filterName}</legend>
-
         <div className={css.grid}>
           {filter.map((name, index) => (
             <label key={index} className={css.optionLabel}>
@@ -31,6 +34,7 @@ export default function Filter({ onClear, filters }: FilterProps) {
                 name={normalizedFilter}
                 value={name}
                 className={css.realInput}
+                defaultChecked={searchParams.get(normalizedFilter) === name}
               />
               <div className={css.optionCard}>
                 <span className={css.labelContent}>{formatString(name)}</span>
@@ -55,7 +59,7 @@ export default function Filter({ onClear, filters }: FilterProps) {
           Search
         </AppButton>
         <AppButton
-          type="reset"
+          type="button"
           variant="outline"
           className={css.resetBtn}
           onClick={onClear}
