@@ -52,6 +52,7 @@ export default function CatalogClient() {
           <AppButton
             onClick={() => fetchNextPage()}
             variant="outline"
+            className={css.loadMoreBtn}
             disabled={isFetchingNextPage}
           >
             {isFetchingNextPage ? "Loading..." : "Load more"}
