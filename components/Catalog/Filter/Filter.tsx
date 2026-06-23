@@ -35,7 +35,6 @@ export default function Filter({
                 name={normalizedFilter}
                 value={name}
                 className={css.realInput}
-                key={`${normalizedFilter}-${currentValue}`}
                 defaultChecked={currentValue === name}
               />
               <div className={css.optionCard}>

@@ -17,7 +17,6 @@ export default function LocationInput({ defaultValue }: Props) {
           placeholder="City"
           className={css.input}
           name="location"
-          key={defaultValue}
           defaultValue={defaultValue}
         />
         <HiOutlineMap className={css.icon} />

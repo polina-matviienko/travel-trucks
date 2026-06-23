@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchFilters } from "@/lib/campersApi";
 import LocationInput from "@/components/Catalog/LocationInput/LocationInput";
 import Filter from "@/components/Catalog/Filter/Filter";
+
 import css from "./Sidebar.module.css";
 
 export default function SidebarDefault() {
@@ -16,16 +17,17 @@ export default function SidebarDefault() {
 
   const { data: filters } = useQuery({
     queryKey: ["filters"],
-    queryFn: () => fetchFilters(),
+    queryFn: fetchFilters,
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     const formData = new FormData(e.currentTarget);
     const params = new URLSearchParams();
 
     formData.forEach((value, key) => {
-      if (value) params.append(key, value.toString());
+      if (value) params.set(key, value.toString());
     });
 
     router.push(`${pathname}?${params.toString()}`);
@@ -33,17 +35,12 @@ export default function SidebarDefault() {
 
   const handleClear = () => {
     router.push(pathname);
-    formRef.current?.reset();
   };
 
   return (
-    <form
-      key={searchParams.toString()}
-      ref={formRef}
-      onSubmit={handleSubmit}
-      className={css.form}
-    >
+    <form ref={formRef} onSubmit={handleSubmit} className={css.form}>
       <LocationInput defaultValue={searchParams.get("location") || ""} />
+
       <div className={css.filtersWrapper}>
         {filters && (
           <Filter

@@ -11,30 +11,33 @@ import css from "./Catalog.module.css";
 
 export default function CatalogClient() {
   const searchParams = useSearchParams();
-  const filters = Object.fromEntries(searchParams.entries());
+
+  const filters = React.useMemo(() => {
+    return Object.fromEntries(searchParams.entries());
+  }, [searchParams]);
+
+  const filtersString = searchParams.toString();
 
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
     useInfiniteQuery({
-      queryKey: ["campers", filters],
+      queryKey: ["campers", filtersString],
+      initialPageParam: 1,
       queryFn: ({ pageParam = 1 }) =>
         fetchCampers({ ...filters, page: pageParam as number }),
-      initialPageParam: 1,
-      getNextPageParam: (lastPage) => {
-        return lastPage.page < lastPage.totalPages
-          ? lastPage.page + 1
-          : undefined;
-      },
+      getNextPageParam: (lastPage) =>
+        lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined,
     });
 
-  const isEmpty = status === "success" && data?.pages[0]?.campers?.length === 0;
+  const isEmpty =
+    status === "success" && data?.pages?.[0]?.campers?.length === 0;
 
   return (
-    <section className={css.catalog} key={searchParams.toString()}>
+    <section className={css.catalog}>
       {status === "pending" && <Loader />}
 
       <div className={css.list}>
-        {data?.pages.map((page, index) => (
-          <React.Fragment key={index}>
+        {data?.pages.map((page, i) => (
+          <React.Fragment key={i}>
             {page.campers.map((camper) => (
               <CamperCard key={camper.id} camper={camper} />
             ))}

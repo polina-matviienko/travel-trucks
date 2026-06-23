@@ -13,18 +13,37 @@ export const metadata: Metadata = {
     "Find your ideal camper in our selection. Filter by type, location, and amenities to plan your next road trip.",
 };
 
-export default async function CatalogPage() {
+type Props = {
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
+};
+
+export default async function CatalogPage({ searchParams }: Props) {
   const queryClient = new QueryClient();
 
+  const resolvedParams = await searchParams;
+
+  const cleanParams = Object.fromEntries(
+    Object.entries(resolvedParams).map(([key, value]) => [
+      key,
+      Array.isArray(value) ? value[0] : (value ?? ""),
+    ]),
+  );
+
+  const filtersString = new URLSearchParams(cleanParams).toString();
+
   await queryClient.prefetchInfiniteQuery({
-    queryFn: ({ pageParam = 1 }) => fetchCampers({ page: pageParam as number }),
-    queryKey: ["campers"],
+    queryKey: ["campers", filtersString],
     initialPageParam: 1,
+    queryFn: ({ pageParam = 1 }) =>
+      fetchCampers({
+        ...cleanParams,
+        page: pageParam as number,
+      }),
   });
 
   await queryClient.prefetchQuery({
-    queryFn: () => fetchFilters(),
     queryKey: ["filters"],
+    queryFn: fetchFilters,
   });
 
   return (
